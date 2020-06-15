@@ -16,7 +16,7 @@ This project was build with-
 - ReactJs ( Hooks, Redux, Material-ui, etc )
 - https://github.com/rayvikram/mytournament-frontend
 
-## Backend 
+## Backend (api)
 - Django ( Django-rest-framework, etc)
 - https://github.com/rayvikram/mytournament-backend
 
