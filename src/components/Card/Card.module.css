@@ -1,0 +1,46 @@
+.Card {
+    width: 100%;
+    margin-bottom: 2%;
+    max-height: 20%;
+    margin-right: 2%;
+    /* line-height: 50%; */
+}
+.Time {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 0px;
+}
+
+.Strap {
+  position: absolute;
+  top:0.5rem;
+  left: 0.5rem;
+}
+
+.CardAction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small {
+  font-size: 0.8rem !important;
+}
+
+.Organiser {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .Card {
+      max-width: 47%;
+    }
+  }
+
+@media only screen and (min-width: 850px) {
+    .Card {
+      max-width: 31%;
+    }
+  }
+  
