@@ -10,12 +10,15 @@ https://mytournament.tk/
 - Appoint Winner at the end of the tournament
 - Send Notification to all users in particular tournament
 
+
 This project was build with-
 ## Frontend
 - ReactJs ( Hooks, Redux, Material-ui, etc )
+- https://github.com/rayvikram/mytournament-frontend
 
 ## Backend 
 - Django ( Django-rest-framework, etc)
+- https://github.com/rayvikram/mytournament-backend
 
 ## Database
 - Postgresql
