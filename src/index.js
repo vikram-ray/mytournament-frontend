@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 
 import Reducer from './store/reducers/RootReducer';
+import HttpsRedirect from 'react-https-redirect';
 
 const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +18,9 @@ const store = createStore(Reducer,composeEnhances(
 
 const app = (
     <Provider store={store}>
-        <App />
+        <HttpsRedirect>
+            <App />
+        </HttpsRedirect>
     </Provider>
 )
 
