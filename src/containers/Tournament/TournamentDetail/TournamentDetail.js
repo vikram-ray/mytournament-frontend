@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import Loader from '../../../components/Loader/Loader';
 import ExpansionBar from './ExpansionBar/ExpansionBar';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import Axios from 'axios';
 import {getLocalTime, isBefore }from '../../Utils/TimeUtils';
@@ -46,6 +46,7 @@ function TournamentDetail(props) {
     const [participated, setParticipated] = useState(false);
     const [modal, setModal] = useState(false);
     const [notiModal, setNotiModal] = useState(false);
+    const [loginRedirect, setLoginRedirect] = useState(false);
 
     const isAuthenticated = useSelector(state=>state.auth.isAuthenticated);
     const user = useSelector(state=>state.auth.user);
@@ -106,7 +107,14 @@ function TournamentDetail(props) {
     },[]);
 
     const handleDelete = () => {dispatch(deleteMytournament(tournament.id, props));}
-    const modalToggler = () => { setModal(!modal) }
+    const modalToggler = () => {
+        if(isAuthenticated) {
+            setModal(!modal);
+        }else{
+            toast.info('Please Login before Joining a tournament.');
+            setLoginRedirect(true);
+        }
+    }
     const notiModalToggler = () => { setNotiModal(!notiModal) }
     const handleJoin = (user) => {
         setModal(false);
@@ -129,6 +137,10 @@ function TournamentDetail(props) {
         myNotification = [...tournament.notifications]
         myNotification.reverse()
     }
+
+    if(loginRedirect) {
+        return <Redirect to='/login' />
+        }
 
     return (
         <div className={classes.root}>
